@@ -1,0 +1,1 @@
+ALTER TABLE `projects` ADD `github` varchar(255);

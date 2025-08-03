@@ -1,0 +1,30 @@
+@import 'tailwindcss';
+@import "@nuxt/ui";
+@plugin 'daisyui' {
+   themes: false;
+}
+@plugin "@tailwindcss/typography";
+
+@theme {
+    --color-primary: #252734;
+    --color-secondary: #f6d860;
+    --color-success: green;
+    --color-error: red;
+    --color-warning: yellow;
+    --color-info: blue;
+    --color-neutral: whitesmoke;
+    --font-arial: Arial, Helvetica, sans-serif, Poppins;
+    --font-playfair : 'Playfair Display', Arial;
+    --font-robot: 'Roboto'
+ }
+
+
+
+ .container {
+   @apply max-w-[95%] mx-auto
+ }
+
+ .tiptap {
+  background-color: #252734;
+  @apply rounded-2xl
+ }
