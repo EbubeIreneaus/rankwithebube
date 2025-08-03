@@ -11,7 +11,9 @@
                 <u-button to="/admin/auth/logout" label="Sign Out" icon="fa6-solid:arrow-right-to-bracket" size="md" color="error" variant="soft" />
             </div>
         </header>
-        <slot></slot>
+        <client-only>
+            <slot></slot>
+        </client-only>
     </div>
 </template>
 

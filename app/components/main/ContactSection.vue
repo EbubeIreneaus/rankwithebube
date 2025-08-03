@@ -54,7 +54,7 @@
           <h6 class="text-xl mb-3">Socials</h6>
           <div class="flex gap-x-5 *:text-slate-300">
             <a
-              href="https://facebook.com/ebubeireneaus"
+              href="https://facebook.com/rankwithebube"
               target="_blank"
               rel="noopener noreferrer"
               class="btn border-0 rounded-full py-6"

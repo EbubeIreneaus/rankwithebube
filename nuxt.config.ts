@@ -5,6 +5,9 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
   },
+  experimental: {
+    buildCache: true,
+  },
   app: {
     head: {
       title: "Ebube Ireneaus || Business Website Developer - Nigeria",
@@ -13,6 +16,18 @@ export default defineNuxtConfig({
       },
     },
   },
+  site: {
+    url: "https://rankwithebube.com",
+    name: "Rank With Ebube",
+  },
+  routeRules: {
+    "/blog/**": {
+      swr: true,
+      cache: { maxAge: 300 },
+    },
+    "/api/main/*": { cache: { maxAge: 60 * 60 } },
+  },
+
   modules: [
     "nuxt-aos",
     "@nuxt/image",
@@ -20,7 +35,17 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     "nuxt-nodemailer",
     "nuxt-schema-org",
+    "@nuxtjs/sitemap",
+    "@nuxtjs/robots",
   ],
+
+  robots: {
+    blockNonSeoBots: true,
+  },
+
+  sitemap: {
+    exclude: ["/admin/**"],
+  },
 
   css: ["~/assets/css/style.css", "~/assets/css/tailwind.css"],
 
@@ -43,13 +68,12 @@ export default defineNuxtConfig({
 
   nodemailer: {
     from: '"Rank With Ebube" <alfredebube7@gmail.com>',
-    host: 'smtp-relay.brevo.com',
+    host: "smtp-relay.brevo.com",
     port: 465,
     secure: true,
     auth: {
-      user: '7d8d53001@smtp-brevo.com',
-      pass: '',
+      user: "7d8d53001@smtp-brevo.com",
+      pass: "",
     },
   },
-
 });
