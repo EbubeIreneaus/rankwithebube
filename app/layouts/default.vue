@@ -110,7 +110,7 @@ onBeforeUnmount(() => {
             <div class="">
               <img
                 src="/logo.webp"
-                alt="Personal Brand Logo"
+                alt="Logo"
                 height="50"
                 width="50"
                 class="rounded-lg"
@@ -158,7 +158,7 @@ onBeforeUnmount(() => {
           </div>
           <div class="">
             <div class="mobile-action-link text-end">
-              <u-button class="offcanvas-toggle btn border-0 rounded-lg text-slate-100" icon="fa6-solid:bars" />
+              <u-button class="offcanvas-toggle btn border-0 rounded-lg text-slate-100" aria-label="toggle sidebar" icon="fa6-solid:bars" />
             </div>
           </div>
         </div>
@@ -170,7 +170,7 @@ onBeforeUnmount(() => {
       class="offcanvas offcanvas-rightside offcanvas-mobile-menu-section"
     >
       <div class="offcanvas-header text-end">
-        <u-button flat class="offcanvas-clos btn border-0 rounded-xl" icon="fa6-solid:xmark" />
+        <u-button flat class="offcanvas-clos btn border-0 rounded-xl" icon="fa6-solid:xmark" aria-label="close sidebar" />
           
       </div>
 
@@ -217,6 +217,7 @@ onBeforeUnmount(() => {
                 target="_blank"
                 href="https://facebook.com/rankwithebube"
                 rel="nofollow"
+                aria-label="visit my facebook page"
                 ><Icon name="fa6-brands:facebook-f" /></a>
             </li>
             <li class="btn border-0 rounded-full">
@@ -224,12 +225,14 @@ onBeforeUnmount(() => {
                 target="_blank"
                 href="https://twitter.com/EbubeIreneaus"
                 rel="nofollow"
+                aria-label="visit my twitter profile"
                 ><Icon name="fa6-brands:x-twitter" /></a>
             </li>
             <li class="btn border-0 rounded-full">
               <a
                 target="_blank"
                 href="https://linkedin.com/in/EbubeIreneaus"
+                aria-label="visit my linkedin account"
                 rel="nofollow"
                 ><Icon name="mdi:linkedin" /></a>
             </li>
@@ -239,7 +242,7 @@ onBeforeUnmount(() => {
       </div>
       <!-- End Offcanvas Mobile Menu Wrapper -->
     </div>
-    <!-- ...:::: End Offcanvas Mobile Menu Section:::... -->
+
 
     <!-- Offcanvas Overlay -->
     <div class="offcanvas-overlay"></div>

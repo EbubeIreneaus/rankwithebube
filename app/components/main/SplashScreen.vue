@@ -17,13 +17,12 @@
 </template>
 
 <script setup>
+
 const fullTitle = "RANK WITH EBUBE".split("");
 const isLoading = ref(true);
 
 onMounted(() => {
-  setTimeout(() => {
-    isLoading.value = false;
-  }, 2500);
+  isLoading.value = false
 });
 </script>
 
@@ -63,7 +62,7 @@ onMounted(() => {
 .char {
   opacity: 0;
   transform: translateY(15px);
-  animation: appear 0.6s ease-out forwards;
+  animation: appear 0.3s ease-out forwards;
 }
 
 .tagline {
@@ -71,7 +70,7 @@ onMounted(() => {
   font-size: 0.9rem;
   color: #cbd5e1;
   opacity: 0;
-  animation: fadeInTagline 1s 1.5s forwards;
+  animation: fadeInTagline .5s 1 forwards;
 }
 
 /* Animations */

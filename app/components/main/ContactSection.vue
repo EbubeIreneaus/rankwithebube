@@ -20,11 +20,11 @@
             <div class="flex flex-col">
               <span>Email</span>
               <a
-                href="mailto:service@ebubeireneaus.com"
+                href="mailto:hello@rankwithebube.com"
                 target="_blank"
                 rel="norefferer nofollow"
-                 arial-label="email address service@ebubeireneaus.com"
-                >service@ebubeireneaus.com</a
+                 arial-label="email address hello@rankwithebube.com"
+                >hello@rankwithebube.com</a
               >
             </div>
           </div>
@@ -51,31 +51,35 @@
 
       <div data-aos="fade-up">
         <div class="">
-          <h6 class="text-xl mb-3">Socials</h6>
+          <h3 class="text-xl mb-3">Socials</h3>
           <div class="flex gap-x-5 *:text-slate-300">
             <a
               href="https://facebook.com/rankwithebube"
               target="_blank"
               rel="noopener noreferrer"
               class="btn border-0 rounded-full py-6"
+              aria-label="visit my facebook account"
               ><Icon name="fa6-brands:facebook-f" /></a>
             <a
               href="https://x.com/EbubeIreneaus"
               target="_blank"
               rel="noopener noreferrer"
               class="btn border-0 rounded-full py-6"
-              ><Icon name="fa6-brands:twitter" /></a>
+              aria-label="visit my x account"
+              ><Icon name="fa6-brands:x-twitter" /></a>
             <a
               href="https://linkedin/in/ebubeireneaus"
               target="_blank"
               rel="noopener noreferrer"
               class="btn border-0 rounded-full py-6"
+              aria-label="visit my linkedin account"
               ><Icon name="fa6-brands:linkedin" /></a>
             <a
               href="https://tiktok.com/ebubeireaus"
               target="_blank"
               rel="noopener noreferrer"
               class="btn border-0 rounded-full py-6"
+              aria-label="visit my tiktok account"
               ><Icon name="fa6-brands:tiktok" /></a>
           </div>
         </div>
