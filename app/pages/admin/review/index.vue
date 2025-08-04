@@ -27,16 +27,7 @@
                 size="sm"
                 variant="ghost"
                 color="neutral"
-                @click="
-                  dialog.open({
-                    review: {
-                      name: item.label,
-                      content: item.content,
-                      id: item.id,
-                    },
-                    action: 'edit',
-                  })
-                "
+                @click="openDialog('edit', item)"
               />
               <u-button
                 label="Delete"
@@ -59,11 +50,7 @@
       color="neutral"
       variant="soft"
       size="xl"
-      @click="
-        dialog.open({
-          action: 'create',
-        })
-      "
+      @click="openDialog('create')"
     />
   </div>
 </template>
@@ -88,6 +75,7 @@ const reviews = computed(() => {
     })) || []
   );
 });
+
 const { data, error, refresh } = await useFetch<ReviewTypes[]>(
   "/api/admin/review/all"
 );
@@ -97,6 +85,41 @@ if (error.value)
     statusCode: error.value.statusCode,
     statusMessage: error.value.statusMessage,
   });
+
+async function openDialog(action: "create" | "edit", item?: any) {
+  const props: any = { action };
+  if (item) {
+    props.review = {
+      ...item,
+      name: item.label,
+      content: item.content,
+      id: item.id,
+    };
+  }
+
+  const instance = dialog.open({ ...props });
+
+  let result = await instance.result;
+
+  if (result && data.value) {
+    if (action == "edit") {
+      result = toRaw(result);
+      const copy = data.value.slice();
+      const index = copy.findIndex((x) => x.id === props.review.id) as number;
+      copy[index] = {
+        ...props.review,
+        name: result.name,
+        content: result.content,
+      };
+      data.value = copy;
+    } else {
+      refresh();
+    }
+  }
+
+  if (result) {
+  }
+}
 
 async function deleteREVIEW(id: number) {
   try {
@@ -110,12 +133,20 @@ async function deleteREVIEW(id: number) {
     );
 
     if (res.success) {
+      if(data.value){
+        const copy = data.value.slice()
+        const index = copy.findIndex((x) => x.id==id)
+        if (index != -1) {
+          copy.splice(index, 1)
+          data.value = copy
+        }
+      }
       toast.add({
         title: "Deleted Successfully",
         icon: "fa6-solid:trash-can",
         color: "info",
       });
-      return refresh();
+      
     }
   } catch (error: any) {
     toast.add({

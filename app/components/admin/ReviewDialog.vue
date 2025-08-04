@@ -42,7 +42,7 @@
 
 <script lang="ts">
 import z from "zod";
-import type { NewReviewTypes } from "~/types";
+import type { ReviewTypes } from "~/types";
 
 const schema = z.object({
   name: z.string().min(1, { message: "name cannot be empty" }),
@@ -51,10 +51,17 @@ const schema = z.object({
 </script>
 
 <script lang="ts" setup>
+const emit = defineEmits(['close'])
 const props = withDefaults(
-  defineProps<{ review?: NewReviewTypes; action?: "create" | "edit" }>(),
+  defineProps<{ review?: ReviewTypes; action?: "create" | "edit" }>(),
   {
-    review: () => ({ name: "", content: "", id: undefined }),
+    review: () => ({
+      name: "",
+      content: "",
+      id: undefined as unknown as number,
+      createdAt: undefined as unknown as Date,
+      rating: 5,
+    }),
     action: "create",
   }
 );
@@ -71,17 +78,14 @@ const { form, reset } = useForm({
 async function submit() {
   try {
     is_submiting.value = true;
-
+    const formData = form.value
     const api =
       props.action == "create"
         ? "/api/admin/review/create"
-        : "/api/admin/review/edit";
+        : "/api/admin/review/edit?id=" + props.review.id;
     const res = await $fetch<{ success: boolean }>(api, {
       method: "POST",
-      body:
-        props.action == "create"
-          ? { ...form.value }
-          : { ...form.value, id: props.review.id },
+      body: formData,
     });
 
     if (res.success) {
@@ -91,8 +95,7 @@ async function submit() {
         color: "success",
         icon: "fa6-solid:circle-check",
       });
-      openModal.value = false;
-      return;
+      emit('close', formData)
     }
   } catch (error: any) {
     toast.add({

@@ -2,7 +2,8 @@
   <UModal
     :dismissible="false"
     :close="{ icon: 'fa6-solid:xmark', color: 'error' }"
-    
+    v-model:open="openModal"
+    ref='modal'
   >
     <template #title
       ><div class="font-roman">
@@ -42,11 +43,17 @@
 </template>
 
 <script lang="ts" setup>
-import type { NewFaqTypes } from "~/types";
+import type { NewFaqTypes, FaqTypes } from "~/types";
+const emit = defineEmits(['close'])
 const props = withDefaults(
-  defineProps<{ faq?: NewFaqTypes; action?: "create" | "edit" }>(),
+  defineProps<{ faq?: FaqTypes; action?: "create" | "edit",  }>(),
   {
-    faq: () => ({ question: "", answer: "", id: undefined }),
+    faq: () => ({
+      question: "",
+      answer: "",
+      id: undefined as unknown as number,
+      createdAt: undefined as unknown as Date,
+    }),
     action: "create",
   }
 );
@@ -55,7 +62,7 @@ const is_submiting = ref(false);
 const toast = useToast();
 const openModal = ref(false);
 
-const { form, reset } = useForm({
+const { form} = useForm({
   question: props.faq.question,
   answer: props.faq.answer,
 });
@@ -63,11 +70,14 @@ const { form, reset } = useForm({
 async function submit() {
   try {
     is_submiting.value = true;
-
-    const api = props.action =='create' ? '/api/admin/faq/create': '/api/admin/faq/edit'
+    const formData = form.value
+    const api =
+      props.action == "create"
+        ? "/api/admin/faq/create"
+        : "/api/admin/faq/edit?id="+props.faq.id;
     const res = await $fetch<{ success: boolean }>(api, {
       method: "POST",
-      body: props.action == 'create' ? {...form.value} : {...form.value, id: props.faq.id}
+      body: formData
     });
 
     if (res.success) {
@@ -77,8 +87,7 @@ async function submit() {
         color: "success",
         icon: "fa6-solid:circle-check",
       });
-      openModal.value = false;
-      return;
+      emit('close', formData)
     }
   } catch (error: any) {
     toast.add({

@@ -7,6 +7,7 @@ const schema = createUpdateSchema(reviewTable);
 
 export default defineEventHandler(async (event) => {
   try {
+    const {id} = getQuery(event) as {id: string}
     const { data, error } = await readValidatedBody(event, schema.safeParse);
     if (error)
       return createError({
@@ -14,7 +15,7 @@ export default defineEventHandler(async (event) => {
         statusCode: 401,
       });
 
-    if (!data.id)
+    if (!id)
       return createError({
         statusMessage: "cannot update review without unique id",
         statusCode: 401,
@@ -25,7 +26,7 @@ export default defineEventHandler(async (event) => {
     await db
       .update(reviewTable)
       .set(data)
-      .where(eq(reviewTable.id, Number(data.id)));
+      .where(eq(reviewTable.id, Number(id)));
     return { success: true };
   } catch (error: any) {
     return createError({

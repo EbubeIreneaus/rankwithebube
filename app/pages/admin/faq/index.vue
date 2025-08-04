@@ -27,16 +27,7 @@
                 size="sm"
                 variant="ghost"
                 color="neutral"
-                @click="
-                  dialog.open({
-                    faq:{
-                      question: item.label,
-                      answer: item.content,
-                      id: item.id,
-                    },
-                    action: 'edit'
-                  })
-                "
+                @click="openDialog('edit', item)"
               />
               <u-button
                 label="Delete"
@@ -45,7 +36,7 @@
                 size="sm"
                 icon="fa6-solid:trash-can"
                 @click="deleteFAQ(item.id)"
-                :loading="isDeleting==item.id"
+                :loading="isDeleting == item.id"
               />
             </div>
           </div>
@@ -59,11 +50,7 @@
       color="neutral"
       variant="soft"
       size="xl"
-      @click="
-        dialog.open({
-          action: 'create',
-        })
-      "
+      @click="openDialog('create')"
     />
   </div>
 </template>
@@ -75,8 +62,8 @@ definePageMeta({
   layout: "admin",
 });
 
-const isDeleting = ref<number | null>(null)
-const toast = useToast()
+const isDeleting = ref<number | null>(null);
+const toast = useToast();
 
 const dialog = useOverlay().create(FaqDialog);
 const faqs = computed(() => {
@@ -88,7 +75,10 @@ const faqs = computed(() => {
     })) || []
   );
 });
-const { data, error, refresh } = await useFetch<FaqTypes[]>("/api/admin/faq/all");
+
+const { data, error, refresh } = await useFetch<FaqTypes[]>(
+  "/api/admin/faq/all"
+);
 
 if (error.value)
   throw createError({
@@ -96,8 +86,45 @@ if (error.value)
     statusMessage: error.value.statusMessage,
   });
 
+async function openDialog(action: "create" | "edit", item?: any) {
+  const props: any = { action: action };
+  if (item) {
+    props.faq = {
+      ...item,
+      question: item.label,
+      answer: item.answer,
+      id: item.id,
+    };
+  }
+  const instance = dialog.open({
+    ...props,
+  });
+
+  let result = await instance.result;
+
+  if (result) {
+    result = toRaw(result);
+
+    if (props.action == "edit") {
+      if (data.value) {
+        let copy = data.value.slice();
+        const index = copy.findIndex((x) => x.id == props.faq.id) as number;
+        copy[index] = {
+          ...props.faq,
+          question: result.question,
+          answer: result.answer,
+        };
+        data.value = copy
+        console.log(data.value[index]);
+      }
+    } else {
+      refresh();
+    }
+  }
+}
+
 async function deleteFAQ(id: number) {
-   try {
+  try {
     if (!confirm("Are you sure")) return false;
     isDeleting.value = id;
     const res = await $fetch<{ success: boolean }>(
@@ -108,12 +135,20 @@ async function deleteFAQ(id: number) {
     );
 
     if (res.success) {
+      if(data.value){
+        const copy = data.value.slice()
+        const index = copy.findIndex((x) => x.id==id)
+        if (index != -1) {
+          copy.splice(index, 1)
+          data.value = copy
+        }
+      }
+      
       toast.add({
         title: "Deleted Successfully",
         icon: "fa6-solid:trash-can",
         color: "info",
       });
-      return refresh();
     }
   } catch (error: any) {
     toast.add({

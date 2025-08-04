@@ -3,7 +3,7 @@ import { pgTable, varchar, integer, text, boolean, timestamp, pgEnum } from 'dri
 export const blogCategoryEnum = pgEnum('blog_category', ['business', 'tech']);
 
 export const projectTable = pgTable('projects', {
-  id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
+  id: integer().primaryKey().generatedAlwaysAsIdentity(),
   slug: varchar('slug', { length: 500 }).unique().notNull(),
   title: varchar('title', { length: 255 }).notNull(),
   description: varchar('description', { length: 1000 }).notNull(),
@@ -19,7 +19,7 @@ export const projectTable = pgTable('projects', {
 });
 
 export const blogTable = pgTable('blogs', {
-  id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
+  id: integer().primaryKey().generatedAlwaysAsIdentity(),
   slug: varchar('slug', { length: 500 }).unique().notNull(),
   title: varchar('title', { length: 255 }).notNull(),
   description: varchar('description', { length: 1000 }).notNull(),
@@ -34,7 +34,7 @@ export const blogTable = pgTable('blogs', {
 });
 
 export const contactTable = pgTable('messages', {
-  id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
+  id: integer().primaryKey().generatedAlwaysAsIdentity(),
   name: varchar('name', { length: 255 }).notNull(),
   email: varchar('email', { length: 255 }).notNull(),
   subject: varchar('subject', { length: 255 }),
@@ -42,14 +42,14 @@ export const contactTable = pgTable('messages', {
 });
 
 export const faqTable = pgTable('faqs', {
-  id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
+  id: integer().primaryKey().generatedAlwaysAsIdentity(),
   question: varchar('question', { length: 255 }).notNull(),
   answer: text('answer').notNull(),
   createdAt: timestamp('created_at').defaultNow().notNull()
 });
 
 export const reviewTable = pgTable('reviews', {
-  id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
+  id: integer().primaryKey().generatedAlwaysAsIdentity(),
   name: varchar('name', { length: 255 }).notNull(),
   content: text('content').notNull(),
   rating: integer('rating').default(5).notNull(),
@@ -57,7 +57,7 @@ export const reviewTable = pgTable('reviews', {
 });
 
 export const subcriberTable = pgTable('subscribers', {
-  id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
+  id: integer().primaryKey().generatedAlwaysAsIdentity(),
   email: varchar('email', { length: 255 }).notNull(),
   createdAt: timestamp('created_at').defaultNow().notNull()
 });
