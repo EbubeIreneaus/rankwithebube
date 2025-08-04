@@ -15,7 +15,7 @@
         <div>
           <!-- Hero Image -->
           <img
-            src="/images/about/1.webp"
+            src="/images/about/1_400.webp"
             alt="developer working on laptop at desk professional setup"
             class="rounded-xl shadow-lg w-full object-cover oject-center"
             width="400"
@@ -31,7 +31,7 @@
       <div class="grid md:grid-cols-2 gap-10 items-center">
         <div>
           <img
-            src="/images/about/2.webp"
+            src="/images/about/2_400.webp"
             alt="person walking toward target arrow graphic"
             class="rounded-xl shadow-lg w-full object-cover object-center h-[320px]"
             width="400"
@@ -80,7 +80,7 @@
         </div>
         <div>
           <img
-            src="/images/about/3.webp"
+            src="/images/about/3_400.webp"
             alt="spotlight on winner concept"
             class="rounded-xl shadow-lg w-full h-[320px]"
             width="400"
@@ -96,7 +96,7 @@
       <div class="grid md:grid-cols-2 gap-10 items-center">
         <div>
           <img
-            src="/images/about/4.webp"
+            src="/images/about/4_400.webp"
             alt="My Workflow"
             class="rounded-xl shadow-lg w-full h-[320px] object-cover object-center"
             width="400"

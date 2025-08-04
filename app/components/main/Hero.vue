@@ -4,7 +4,7 @@
       <div class="flex px-10 flex-col space-y-3 max-w-xl order-2 lg:order-1">
         <h1
           class="!font-playfair text-5xl font-bold lg:text-left text-center"
-          data-aos="fade-up"
+          
         >
           Your Business Deserves a Website That Works
         </h1>
@@ -12,7 +12,10 @@
           class="lg:text-left text-center !font-arial w-full text-lg"
           data-aos="fade-right"
         >
-         I build custom, SEO-driven websites for businesses that don’t just look great — they generate traffic, convert leads, and fuel long-term growth through smart design, strategy, and performance-focused development.
+          I build custom, SEO-driven websites for businesses that don’t just
+          look great — they generate traffic, convert leads, and fuel long-term
+          growth through smart design, strategy, and performance-focused
+          development.
         </h2>
 
         <div class="mt-5 flex justify-center lg:justify-start">
@@ -20,11 +23,12 @@
         </div>
       </div>
       <img
-        src="/images/ebube-tr.webp"
+        srcset="/images/ebube-tr_204.webp 204w, /images/ebube-tr_280.webp 280w, /images/ebube-tr.webp 408w"
+        sizes="(min-width: 1024px) 400px, (min-width:768px) 280px, 204px"
         class="size-60 md:size-70 lg:size-100 object-cover aspect-square object-top bg-primary order-1 lg:order-2"
         alt="Ebube Ireneaus Profile Photo transparent"
         loading="eager"
-        widht="400px"
+        width="400px"
         height="400px"
       />
     </div>

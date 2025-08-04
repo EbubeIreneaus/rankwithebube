@@ -36,7 +36,7 @@ import { MainTitle } from '#components';
       <!-- Image -->
       <div data-aos="fade-left">
         <img
-          src="/images/about/cta.webp"
+          src="/images/about/cta_400.webp"
           alt="business partnership handshake"
           class="rounded-xl shadow-lg w-full"
           width="400"
