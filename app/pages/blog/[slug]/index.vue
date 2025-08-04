@@ -107,7 +107,7 @@ import type { BlogTypes } from "~/types";
 
 const route = useRoute();
 const shareUrl = computed(
-  () => `https://codewithebube.com/blog/${blog.value?.slug}`
+  () => `https://rankwithebube.com/blog/${blog.value?.slug}`
 );
 
 const { data, error, refresh } = await useFetch<{

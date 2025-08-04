@@ -67,7 +67,7 @@ export default defineNuxtConfig({
   },
 
   nodemailer: {
-    from: '"Rank With Ebube" <alfredebube7@gmail.com>',
+    from: '"Rank With Ebube" <hello@rankwithebube.com>',
     host: "smtp-relay.brevo.com",
     port: 465,
     secure: true,

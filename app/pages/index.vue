@@ -151,7 +151,7 @@ const { data, error } = await useAsyncData("homepage", async () => {
 });
 
 if (error.value)
-  throw createError({ statusCode: 500, statusMessage: "unknown server error" });
+  throw createError({ ...error.value, message: error.value.statusMessage || 'Unknown server error' });
 </script>
 
 <style scoped></style>

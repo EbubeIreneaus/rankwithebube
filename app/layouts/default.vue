@@ -201,7 +201,7 @@ onBeforeUnmount(() => {
               </li>
 
               <li>
-                <nuxt-link to="/#contact"><span>Contact</span></nuxt-link>
+                <nuxt-link to="/contact-me"><span>Contact</span></nuxt-link>
               </li>
             </ul>
           </div>

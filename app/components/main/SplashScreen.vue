@@ -1,91 +1,109 @@
 <template>
-  <div class="splash-screen loader bg-primary" v-if="isLoading">
-    <h1 class="text-container">
-      <span v-for="(char, index) in title" :key="index" class="letter">
-        {{ char }}
-      </span>
-    </h1>
+  <div v-if="isLoading" class="splash-container">
+    <div class="logo-wrapper">
+      <h1 class="brand-name">
+        <span
+          v-for="(char, index) in fullTitle"
+          :key="index"
+          class="char"
+          :style="{ animationDelay: `${index * 0.04}s` }"
+        >
+          {{ char }}
+        </span>
+      </h1>
+      <p class="tagline">Boosting visibility. Driving results.</p>
+    </div>
   </div>
 </template>
 
 <script setup>
-const title = "RWE".split("");
+const fullTitle = "RANK WITH EBUBE".split("");
 const isLoading = ref(true);
 
 onMounted(() => {
-  isLoading.value = false;
+  setTimeout(() => {
+    isLoading.value = false;
+  }, 2500);
 });
 </script>
 
 <style scoped>
-/* Fullscreen Splash */
-.splash-screen {
+.splash-container {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100dvw;
-  height: 100dvh;
+  inset: 0;
+  background-color: #0f172a; /* Tailwind bg-slate-900 */
   display: flex;
-  align-items: center;
   justify-content: center;
-  z-index: 9999999999999;
-  opacity: 1;
-  transition: all 0.3s linear;
+  align-items: center;
+  z-index: 999999;
+  animation: fadeOut 0.5s ease-in-out forwards;
+  animation-delay: 2.3s;
+  pointer-events: none;
 }
 
-/* Text Container */
-.text-container {
-  font-size: 50px;
-  font-weight: bold;
-  letter-spacing: 10px;
-  color: white;
+.logo-wrapper {
+  text-align: center;
+  padding: 0 1rem;
+  width: 100%;
+  max-width: 90vw;
+}
+
+.brand-name {
   display: flex;
-  gap: 5px;
-  overflow: hidden;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 2.5rem;
+  color: white;
+  line-height: 1.2;
+  gap: 0.1em;
+  word-break: break-word;
 }
 
-/* Letters */
-.letter {
-  display: inline-block;
-  position: relative;
+.char {
   opacity: 0;
-  animation: fadeIn 1s forwards, flashEffect 2s infinite linear;
+  transform: translateY(15px);
+  animation: appear 0.6s ease-out forwards;
 }
 
-/* Flash Animation */
-@keyframes flashEffect {
-  0% {
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      white 50%,
-      transparent 100%
-    );
-    background-size: 300% 100%;
-    background-position: 100% 0;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  100% {
-    background-position: -100% 0;
-  }
+.tagline {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  opacity: 0;
+  animation: fadeInTagline 1s 1.5s forwards;
 }
 
-/* Staggered Letter Animation */
-.letter:nth-child(1) {
-  animation-delay: 0.1s;
-}
-.letter:nth-child(2) {
-  animation-delay: 0.2s;
-}
-.letter:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-/* Fade Out Effect */
-@keyframes fadeIn {
+/* Animations */
+@keyframes appear {
   to {
     opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInTagline {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+  .brand-name {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+  }
+
+  .tagline {
+    font-size: 0.8rem;
   }
 }
 </style>

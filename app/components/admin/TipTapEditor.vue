@@ -138,6 +138,39 @@
         class="cursor-pointer"
       />
 
+       <u-button
+        @click="editor.commands.unsetColor()"
+        :disabled="!editor.can().chain().focus().toggleUnderline().run()"
+        :color="editor.isActive('underline') ? 'secondary' : 'neutral'"
+        icon="mdi:invert-colors"
+        variant="soft"
+        size="sm"
+        class="cursor-pointer"
+        title="reser color"
+      />
+
+      <label for="color">
+        <u-button
+          :color="editor.isActive('underline') ? 'secondary' : 'neutral'"
+          icon="mdi:color"
+          variant="soft"
+          size="sm"
+          class="cursor-pointer"
+          :style="{
+            color: editor.getAttributes('textStyle').color,
+          }"
+          @click="colorInput?.click()"
+        />
+        <input
+          id="color"
+          type="color"
+          @input="editor.commands.setColor(($event.target as HTMLInputElement).value)"
+          :value="editor.getAttributes('textStyle').color"
+          class="hidden"
+          ref="colorInput"
+        />
+      </label>
+
       <u-button
         @click="editor.chain().focus().toggleUnderline().run()"
         :disabled="!editor.can().chain().focus().toggleUnderline().run()"
@@ -159,10 +192,9 @@
       />
 
       <u-button
-        @click="editor.chain().focus().toggleCode().run()"
-        :disabled="!editor.can().chain().focus().toggleCode().run()"
-        :color="editor.isActive('code') ? 'secondary' : 'neutral'"
-        icon="fa6-solid:code"
+        @click="toggleHtmlView()"
+        :color="isHtmlMode ? 'secondary' : 'neutral'"
+        icon="mdi:language-html5"
         variant="soft"
         size="sm"
         class="cursor-pointer"
@@ -198,9 +230,48 @@
       />
 
       <u-button
+        @click="editor.commands.setTextAlign('left')"
+        :color="
+          editor.isActive({ textAlign: 'left' }) ? 'secondary' : 'neutral'
+        "
+        icon="mdi:format-align-left"
+        variant="soft"
+        size="sm"
+        class="cursor-pointer"
+      />
+
+      <u-button
+        @click="editor.commands.setTextAlign('center')"
+        :color="
+          editor.isActive({ textAlign: 'center' }) ? 'secondary' : 'neutral'
+        "
+        icon="mdi:format-align-center"
+        variant="soft"
+        size="sm"
+        class="cursor-pointer"
+      />
+
+      <u-button
+        @click="editor.commands.setTextAlign('right')"
+        :color="
+          editor.isActive({ textAlign: 'right' }) ? 'secondary' : 'neutral'
+        "
+        icon="mdi:format-align-right"
+        variant="soft"
+        size="sm"
+        class="cursor-pointer"
+      />
+
+      <u-button
         v-for="level in 6"
         :key="'h' + level"
-        @click="editor.chain().focus().toggleHeading({ level: level as 1 | 2 | 3 | 4 | 5 | 6 }).run()"
+        @click="
+          editor
+            .chain()
+            .focus()
+            .toggleHeading({ level: level as 1 | 2 | 3 | 4 | 5 | 6 })
+            .run()
+        "
         :color="editor.isActive('heading', { level }) ? 'secondary' : 'neutral'"
         variant="soft"
         size="sm"
@@ -254,9 +325,9 @@
 
       <!-- Block Elements -->
       <u-button
-        @click="editor.chain().focus().toggleCodeBlock().run()"
+        @click="editor.commands.toggleCodeBlock()"
         :color="editor.isActive('codeBlock') ? 'secondary' : 'neutral'"
-        icon="fa6-solid:code-branch"
+        icon="fa6-solid:code"
         variant="soft"
         size="sm"
         class="cursor-pointer"
@@ -397,7 +468,14 @@
       />
     </div>
 
-    <EditorContent :editor="editor" />
+    <u-textarea
+      v-model="htmlCode"
+      variant="soft"
+      class="w-full"
+      :rows="15"
+      v-if="isHtmlMode"
+    />
+    <EditorContent :editor="editor" v-else />
   </div>
 </template>
 
@@ -415,14 +493,19 @@ import TableCell from "@tiptap/extension-table-cell";
 import TableHeader from "@tiptap/extension-table-header";
 import Subscript from "@tiptap/extension-subscript";
 import Superscript from "@tiptap/extension-superscript";
+import TextAlign from "@tiptap/extension-text-align";
+import { TextStyle, Color } from "@tiptap/extension-text-style";
 
 const toast = useToast();
 const props = defineProps(["modelValue"]);
 const emit = defineEmits(["update:modelValue", "setPreviewImage"]);
+const isHtmlMode = ref(false);
+const htmlCode = ref("");
 
 const openImageModal = ref(false);
 const isImageUploading = ref(false);
 
+const colorInput = ref<HTMLInputElement | null>(null)
 const openLinkModal = ref(false);
 
 const { form: imageForm, reset: resetImageForm } = useForm({
@@ -506,6 +589,8 @@ const editor = useEditor({
   extensions: [
     StarterKit,
     Highlight,
+    TextStyle,
+    Color,
     Image.configure({
       HTMLAttributes: {
         class:
@@ -518,6 +603,10 @@ const editor = useEditor({
     TableHeader,
     Subscript,
     Superscript,
+    TextAlign.configure({
+      types: ["heading", "paragraph"],
+      defaultAlignment: "justify",
+    }),
   ],
   editorProps: {
     attributes: {
@@ -530,6 +619,15 @@ const editor = useEditor({
     emit("update:modelValue", props.editor.getHTML());
   },
 });
+
+function toggleHtmlView() {
+  if (isHtmlMode.value) {
+    editor.value?.commands.setContent(htmlCode.value);
+  } else {
+    htmlCode.value = editor.value?.getHTML() as string;
+  }
+  isHtmlMode.value = !isHtmlMode.value;
+}
 </script>
 
 <style scoped>

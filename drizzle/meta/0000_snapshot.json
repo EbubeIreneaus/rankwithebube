@@ -1,210 +1,289 @@
 {
-  "version": "5",
-  "dialect": "mysql",
-  "id": "4071706f-7733-4354-ba05-1fb38b0df257",
+  "id": "4650b448-dfd9-430b-a75e-345061e6d7e6",
   "prevId": "00000000-0000-0000-0000-000000000000",
+  "version": "7",
+  "dialect": "postgresql",
   "tables": {
-    "blogs": {
+    "public.blogs": {
       "name": "blogs",
+      "schema": "",
       "columns": {
         "id": {
           "name": "id",
-          "type": "int",
-          "primaryKey": false,
+          "type": "integer",
+          "primaryKey": true,
           "notNull": true,
-          "autoincrement": true
+          "identity": {
+            "type": "always",
+            "name": "blogs_id_seq",
+            "schema": "public",
+            "increment": "1",
+            "startWith": "1",
+            "minValue": "1",
+            "maxValue": "2147483647",
+            "cache": "1",
+            "cycle": false
+          }
         },
         "slug": {
           "name": "slug",
           "type": "varchar(500)",
           "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
+          "notNull": true
         },
         "title": {
           "name": "title",
           "type": "varchar(255)",
           "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
+          "notNull": true
         },
         "description": {
           "name": "description",
           "type": "varchar(1000)",
           "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
+          "notNull": true
         },
         "content": {
           "name": "content",
           "type": "text",
           "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
+          "notNull": true
         },
         "category": {
           "name": "category",
           "type": "varchar(50)",
           "primaryKey": false,
           "notNull": false,
-          "autoincrement": false,
           "default": "'business'"
         },
         "views": {
           "name": "views",
-          "type": "int",
+          "type": "integer",
           "primaryKey": false,
           "notNull": false,
-          "autoincrement": false,
           "default": 0
         },
         "createdAt": {
           "name": "createdAt",
-          "type": "datetime",
+          "type": "timestamp",
           "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false,
-          "default": "NOW()"
+          "notNull": true,
+          "default": "now()"
         },
         "updatedAt": {
           "name": "updatedAt",
-          "type": "datetime",
+          "type": "timestamp",
           "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
+          "notNull": false
+        },
+        "previewImage": {
+          "name": "previewImage",
+          "type": "varchar(500)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "published": {
+          "name": "published",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "publishedDate": {
+          "name": "publishedDate",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
         }
       },
       "indexes": {},
       "foreignKeys": {},
-      "compositePrimaryKeys": {
-        "blogs_id": {
-          "name": "blogs_id",
-          "columns": [
-            "id"
-          ]
-        }
-      },
+      "compositePrimaryKeys": {},
       "uniqueConstraints": {
         "blogs_slug_unique": {
           "name": "blogs_slug_unique",
+          "nullsNotDistinct": false,
           "columns": [
             "slug"
           ]
         }
       },
-      "checkConstraint": {}
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
     },
-    "messages": {
+    "public.messages": {
       "name": "messages",
+      "schema": "",
       "columns": {
         "id": {
           "name": "id",
-          "type": "int",
-          "primaryKey": false,
+          "type": "integer",
+          "primaryKey": true,
           "notNull": true,
-          "autoincrement": true
+          "identity": {
+            "type": "always",
+            "name": "messages_id_seq",
+            "schema": "public",
+            "increment": "1",
+            "startWith": "1",
+            "minValue": "1",
+            "maxValue": "2147483647",
+            "cache": "1",
+            "cycle": false
+          }
         },
         "name": {
           "name": "name",
           "type": "varchar(255)",
           "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
+          "notNull": true
         },
         "email": {
           "name": "email",
           "type": "varchar(255)",
           "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
+          "notNull": true
         },
         "subject": {
           "name": "subject",
           "type": "varchar(255)",
           "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
+          "notNull": false
         },
         "content": {
           "name": "content",
           "type": "text",
           "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
+          "notNull": false
         }
       },
       "indexes": {},
       "foreignKeys": {},
-      "compositePrimaryKeys": {
-        "messages_id": {
-          "name": "messages_id",
-          "columns": [
-            "id"
-          ]
-        }
-      },
+      "compositePrimaryKeys": {},
       "uniqueConstraints": {},
-      "checkConstraint": {}
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
     },
-    "projects": {
-      "name": "projects",
+    "public.faqs": {
+      "name": "faqs",
+      "schema": "",
       "columns": {
         "id": {
           "name": "id",
-          "type": "int",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "identity": {
+            "type": "always",
+            "name": "faqs_id_seq",
+            "schema": "public",
+            "increment": "1",
+            "startWith": "1",
+            "minValue": "1",
+            "maxValue": "2147483647",
+            "cache": "1",
+            "cycle": false
+          }
+        },
+        "question": {
+          "name": "question",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "answer": {
+          "name": "answer",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "createdAt": {
+          "name": "createdAt",
+          "type": "timestamp",
           "primaryKey": false,
           "notNull": true,
-          "autoincrement": true
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.projects": {
+      "name": "projects",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "identity": {
+            "type": "always",
+            "name": "projects_id_seq",
+            "schema": "public",
+            "increment": "1",
+            "startWith": "1",
+            "minValue": "1",
+            "maxValue": "2147483647",
+            "cache": "1",
+            "cycle": false
+          }
         },
         "slug": {
           "name": "slug",
           "type": "varchar(500)",
           "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
+          "notNull": true
         },
         "title": {
           "name": "title",
           "type": "varchar(255)",
           "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
+          "notNull": true
         },
         "description": {
           "name": "description",
           "type": "varchar(1000)",
           "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
+          "notNull": true
         },
         "content": {
           "name": "content",
           "type": "text",
           "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
+          "notNull": true
         },
         "url": {
           "name": "url",
           "type": "varchar(255)",
           "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
+          "notNull": true
+        },
+        "github": {
+          "name": "github",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
         },
         "createdAt": {
           "name": "createdAt",
-          "type": "datetime",
+          "type": "timestamp",
           "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false,
-          "default": "NOW()"
+          "notNull": true,
+          "default": "now()"
         },
         "views": {
           "name": "views",
-          "type": "int",
+          "type": "integer",
           "primaryKey": false,
           "notNull": false,
-          "autoincrement": false,
           "default": 0
         },
         "isLive": {
@@ -212,39 +291,153 @@
           "type": "boolean",
           "primaryKey": false,
           "notNull": false,
-          "autoincrement": false,
           "default": false
+        },
+        "previewImage": {
+          "name": "previewImage",
+          "type": "varchar(500)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "published": {
+          "name": "published",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "publishedDate": {
+          "name": "publishedDate",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
         }
       },
       "indexes": {},
       "foreignKeys": {},
-      "compositePrimaryKeys": {
-        "projects_id": {
-          "name": "projects_id",
-          "columns": [
-            "id"
-          ]
-        }
-      },
+      "compositePrimaryKeys": {},
       "uniqueConstraints": {
         "projects_slug_unique": {
           "name": "projects_slug_unique",
+          "nullsNotDistinct": false,
           "columns": [
             "slug"
           ]
         }
       },
-      "checkConstraint": {}
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.reviews": {
+      "name": "reviews",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "identity": {
+            "type": "always",
+            "name": "reviews_id_seq",
+            "schema": "public",
+            "increment": "1",
+            "startWith": "1",
+            "minValue": "1",
+            "maxValue": "2147483647",
+            "cache": "1",
+            "cycle": false
+          }
+        },
+        "question": {
+          "name": "question",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "content": {
+          "name": "content",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "rating": {
+          "name": "rating",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 5
+        },
+        "createdAt": {
+          "name": "createdAt",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.subscribers": {
+      "name": "subscribers",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "identity": {
+            "type": "always",
+            "name": "subscribers_id_seq",
+            "schema": "public",
+            "increment": "1",
+            "startWith": "1",
+            "minValue": "1",
+            "maxValue": "2147483647",
+            "cache": "1",
+            "cycle": false
+          }
+        },
+        "email": {
+          "name": "email",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "createdAt": {
+          "name": "createdAt",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
     }
   },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
   "views": {},
   "_meta": {
+    "columns": {},
     "schemas": {},
-    "tables": {},
-    "columns": {}
-  },
-  "internal": {
-    "tables": {},
-    "indexes": {}
+    "tables": {}
   }
 }

@@ -1,62 +1,63 @@
-import {mysqlTable, varchar, int, text, datetime, boolean, longtext} from 'drizzle-orm/mysql-core'
-import { sql } from 'drizzle-orm';
+import { pgTable, varchar, integer, text, boolean, timestamp, pgEnum } from 'drizzle-orm/pg-core';
 
-export const projectTable = mysqlTable('projects', {
-    id: int().primaryKey().autoincrement(),
-    slug: varchar({length: 500}).unique().notNull(),
-    title: varchar({length: 255}).notNull(),
-    description: varchar({length: 1000}).notNull(),
-    content: longtext(),
-    url: varchar({length: 255}).notNull(),
-    github: varchar({length: 255}),
-    createdAt: datetime().default(sql`NOW()`),
-    views: int().default(0),
-    isLive: boolean().default(false),
-    previewImage: varchar({length: 500}).notNull(),
-    published: boolean().default(false).notNull(),
-    publishedDate: datetime()
-})
+export const blogCategoryEnum = pgEnum('blog_category', ['business', 'tech']);
 
-export const blogTable = mysqlTable('blogs', {
-    id: int().primaryKey().autoincrement(),
-    slug: varchar({length: 500}).unique().notNull(),
-    title: varchar({length: 255}).notNull(),
-    description: varchar({length: 1000}).notNull(),
-    content: longtext(),
-    category: varchar({length: 50, enum:['business', 'tech']}).default('business'),
-    views: int().default(0),
-    createdAt: datetime().default(sql`NOW()`),
-    updatedAt: datetime(),
-    previewImage: varchar({length: 500}).notNull(),
-    published: boolean().default(false).notNull(),
-    publishedDate: datetime()
-})
+export const projectTable = pgTable('projects', {
+  id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
+  slug: varchar('slug', { length: 500 }).unique().notNull(),
+  title: varchar('title', { length: 255 }).notNull(),
+  description: varchar('description', { length: 1000 }).notNull(),
+  content: text('content').notNull(),
+  url: varchar('url', { length: 255 }).notNull(),
+  github: varchar('github', { length: 255 }),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+  views: integer('views').default(0),
+  isLive: boolean('is_live').default(false),
+  previewImage: varchar('preview_image', { length: 500 }).notNull(),
+  published: boolean('published').default(false).notNull(),
+  publishedDate: timestamp('published_date')
+});
 
-export const contactTable = mysqlTable('messages', {
-     id: int().primaryKey().autoincrement(),
-     name: varchar({length: 255}).notNull(),
-     email: varchar({length: 255}).notNull(),
-     subject: varchar({length: 255}),
-     content: text()
-})
+export const blogTable = pgTable('blogs', {
+  id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
+  slug: varchar('slug', { length: 500 }).unique().notNull(),
+  title: varchar('title', { length: 255 }).notNull(),
+  description: varchar('description', { length: 1000 }).notNull(),
+  content: text('content').notNull(),
+  category: blogCategoryEnum('category').default('business'),
+  views: integer('views').default(0),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+  updatedAt: timestamp('updated_at'),
+  previewImage: varchar('preview_image', { length: 500 }).notNull(),
+  published: boolean('published').default(false).notNull(),
+  publishedDate: timestamp('published_date')
+});
 
-export const faqTable = mysqlTable('faqs', {
-    id: int().primaryKey().autoincrement(),
-    question: varchar('question',{length: 255}).notNull(),
-    answer: text().notNull(),
-    createdAt: datetime().default(sql`NOW()`)
-})
+export const contactTable = pgTable('messages', {
+  id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
+  name: varchar('name', { length: 255 }).notNull(),
+  email: varchar('email', { length: 255 }).notNull(),
+  subject: varchar('subject', { length: 255 }),
+  content: text('content').notNull()
+});
 
-export const reviewTable = mysqlTable('reviews', {
-    id: int().primaryKey().autoincrement(),
-    name: varchar('question',{length: 255}).notNull(),
-    content: text().notNull(),
-    rating: int().default(5).notNull(),
-    createdAt: datetime().default(sql`NOW()`)
-})
+export const faqTable = pgTable('faqs', {
+  id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
+  question: varchar('question', { length: 255 }).notNull(),
+  answer: text('answer').notNull(),
+  createdAt: timestamp('created_at').defaultNow().notNull()
+});
 
-export const subcriberTable = mysqlTable('subscribers', {
-    id: int().primaryKey().autoincrement(),
-    email: varchar('email', {length: 255}).notNull(),
-    createdAt: datetime().default(sql`NOW()`)
-})
+export const reviewTable = pgTable('reviews', {
+  id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
+  name: varchar('name', { length: 255 }).notNull(),
+  content: text('content').notNull(),
+  rating: integer('rating').default(5).notNull(),
+  createdAt: timestamp('created_at').defaultNow().notNull()
+});
+
+export const subcriberTable = pgTable('subscribers', {
+  id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
+  email: varchar('email', { length: 255 }).notNull(),
+  createdAt: timestamp('created_at').defaultNow().notNull()
+});

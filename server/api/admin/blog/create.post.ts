@@ -3,8 +3,12 @@ import { createInsertSchema, CreateInsertSchema } from "drizzle-zod";
 import { blogTable } from "~~/server/db/schema";
 import slugify from "slugify";
 import { count, eq } from "drizzle-orm";
+import createDOMPurify from 'dompurify'
+import {JSDOM} from 'jsdom'
 
 const schema = createInsertSchema(blogTable);
+const {window }= new JSDOM('')
+const purify = createDOMPurify(window)
 
 export default defineEventHandler(async (event) => {
   try {
@@ -26,7 +30,8 @@ export default defineEventHandler(async (event) => {
         blogsWithTitle =  await db.select({ total: count() }).from(blogTable).where(eq(blogTable.slug, blogSlug))
     }
 
-    await db.insert(blogTable).values({ ...data, slug: blogSlug });
+    const sanitizedContent = purify.sanitize(data.content)
+    await db.insert(blogTable).values({ ...data, slug: blogSlug, content: sanitizedContent});
 
     return { success: true };
   } catch (error: any) {

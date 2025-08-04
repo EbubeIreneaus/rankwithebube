@@ -16,7 +16,7 @@
         </h2>
 
         <div class="mt-5 flex justify-center lg:justify-start">
-          <ui-action-button label="Let’s Build Your Growth-Driven Website" />
+          <ui-action-button label="Let’s Start Building" />
         </div>
       </div>
       <img

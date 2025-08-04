@@ -43,9 +43,9 @@
                     impression and convert visitors into real customers.
                   </p> -->
                 </div>
-                <div class="w-fit mx-auto  mb-3">
+                <div class="w-fit sm:mx-auto lg:mx-0  mb-3">
                   <ui-action-button
-                    label="Launch Your Business Website Today"
+                    label="Let's Get Started"
                   />
                 </div>
               </div>
@@ -72,8 +72,8 @@
                     into loyal customers.
                   </p>
                 </div>
-                <div class="w-fit mx-auto mb-3">
-                  <ui-action-button label="Boost Your Google Rankings Now" />
+                <div class="w-fit sm:mx-auto lg:mx-0 mb-3">
+                  <ui-action-button label="Boost Your Visibility" />
                 </div>
               </div>
             </div>
@@ -101,9 +101,9 @@
                     trust and helps your business stay top of mind.
                   </p>
                 </div>
-                <div class="w-fit mx-auto mb-3">
+                <div class="w-fit sm:mx-auto lg:mx-0 mb-3">
                   <ui-action-button
-                    label="Let’s Create Content That Converts"
+                    label="Convert with Content"
                   />
                 </div>
               </div>
