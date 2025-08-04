@@ -9,7 +9,7 @@ const poolConnection = new Pool({
     user: process.env.DB_USER || 'root',
     password: process.env.DB_PASS || undefined,
     port: process.env.DB_PORT ? Number(process.env.DB_PORT) : 5432,
-    ssl: process.env.DB_SSLMODE == 'required'
+    ssl: process.env.DB_SSLMODE === 'require' ? { rejectUnauthorized: false } : false
 })
 
 export const db = drizzle(poolConnection, {schema})
