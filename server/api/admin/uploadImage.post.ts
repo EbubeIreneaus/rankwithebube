@@ -48,7 +48,6 @@ export default defineEventHandler(async (event) => {
               secure_url: string;
               public_id: string;
             };
-            console.log("result", result);
             response.src = result.secure_url;
           }
         } else {

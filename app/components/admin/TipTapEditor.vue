@@ -25,6 +25,7 @@
             <div class="flex flex-wrap items-center gap-x-5 mt-3">
               <UCheckbox
                 label="Preview Image"
+                color="info"
                 v-model="imageForm.preview"
                 class="flex-grow"
               />
@@ -527,7 +528,7 @@ async function uploadImage() {
   try {
     isImageUploading.value = true;
     const formData = new FormData();
-    for (const [key, value] of Object.entries(imageForm.value)) {
+    for (const [key, value] of Object.entries(imageForm.value)) { 
       formData.append(key, value as any);
     }
 
@@ -543,7 +544,7 @@ async function uploadImage() {
     );
 
     if (res.success) {
-      if (res.data.preview) {
+      if (res.data.preview == 'true') {
         emit("setPreviewImage", res.data.src);
         delete res.data.preview;
       }
@@ -551,6 +552,8 @@ async function uploadImage() {
         ?.chain()
         .setImage({
           ...res.data,
+          width: Number(res.data.width) || 800,
+          height: Number(res.data.height) || 500
         })
         .run();
       resetImageForm();
