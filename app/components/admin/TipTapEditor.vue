@@ -475,7 +475,7 @@
       :rows="15"
       v-if="isHtmlMode"
     />
-    <EditorContent :editor="editor" v-else />
+    <EditorContent  :editor="editor" v-else />
   </div>
 </template>
 
@@ -611,7 +611,7 @@ const editor = useEditor({
   editorProps: {
     attributes: {
       class:
-        "prose prose-sm sm:prose lg:prose-lg xl:prose-2xl focus:outline-none w-full ring-1 bg-slate-50 ring-primary my-5 p-3 !max-w-[1400px] !w-full min-h-[200px] max-h-[500px] rounded-border bg-primary text-white",
+        "prose prose-sm sm:prose lg:prose-lg xl:prose-2xl focus:outline-none w-full ring-1 bg-slate-50 ring-primary my-5 p-3 !max-w-[1400px] !w-full min-h-[200px] max-h-[500px] rounded-border bg-primary overflow-y-auto !text-white",
     },
   },
 
