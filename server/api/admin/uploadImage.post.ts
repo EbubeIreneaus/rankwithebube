@@ -21,7 +21,7 @@ export default defineEventHandler(async (event) => {
       return new Promise((resolve, reject) => {
         const uploadStream = cloudinary.uploader.upload_stream(
           {
-            folder: "portfolio/projects",
+            folder: "rankwithebube/images",
             format: "webp",
             transformation: {
                 width: parseInt(response.width) || 500,

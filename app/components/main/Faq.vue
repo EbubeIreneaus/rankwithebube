@@ -5,7 +5,7 @@
     </div>
 
     <div>
-      <u-accordion model-value="0" :items="faq" :ui="{
+      <u-accordion :items="faq" :ui="{
         label:'text-xl font-arial font-bold text-slate-100',
         root: 'card-xs card-body bg-slate-950 rounded-xl py-3 px-5',
         content: 'text-slate-200 px-1'
