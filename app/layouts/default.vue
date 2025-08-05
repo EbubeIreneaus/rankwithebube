@@ -109,7 +109,7 @@ onBeforeUnmount(() => {
           <div class="flex justify-between gap-x-5 items-center">
             <div class="">
               <img
-                src="/logo_50_X_50.webp"
+                src="/logo_75.webp"
                 alt="Logo"
                 height="50"
                 width="50"
@@ -148,7 +148,7 @@ onBeforeUnmount(() => {
           <div class="">
             <div class="mobile-logo">
               <img
-                src="/logo_50_X_50.webp"
+                src="/logo_75.webp"
                 alt="Personal Brand Logo"
                 height="50"
                 width="50"
