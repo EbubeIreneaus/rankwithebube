@@ -3,13 +3,11 @@
     <div class="py-28 min-h-dvh container">
       <div
         v-if="project"
-        class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl max-w-4xl mx-auto"
+        class=" max-w-4xl mx-auto"
       >
         <div class="card-body">
           <div>{{ dayjs(project.createdAt).format("MMMM DD, YYYY") }}</div>
-          <article>
-            <div v-html="project.content"></div>
-          </article>
+          <div v-html="project.content" class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl !text-slate-100"></div>
         </div>
       </div>
     </div>

@@ -4,7 +4,7 @@
       <img
         :src="project.previewImage"
         :alt="`portfolio project - ${project.title}`"
-        class="aspect-[3/2] object-cover object-top"
+        class="aspect-[3/2] object-cover object-top mx-auto"
         width="450"
         height="300"
         loading="lazy"

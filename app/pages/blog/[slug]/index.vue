@@ -4,9 +4,11 @@
       <div v-if="blog" class="max-w-4xl mx-auto">
         <div class="card-body">
           <div>{{ dayjs(blog.createdAt).format("MMMM DD, YYYY") }}</div>
-          <article class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl">
-            <div v-html="blog.content"></div>
-          </article>
+
+          <div
+            v-html="blog.content"
+            class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl !text-slate-100"
+          ></div>
 
           <div class="flex flex-col gap-2 mt-6">
             <h3 class="text-2xl font-bold">Enjoyed this post? Share it:</h3>
@@ -87,7 +89,9 @@
                         {{ blog.title }}
                       </h2>
                     </NuxtLink>
-                    <p class="text-base text-gray-500 line-clamp-2 text-ellipsis">
+                    <p
+                      class="text-base text-gray-500 line-clamp-2 text-ellipsis"
+                    >
                       {{ blog.description }}
                     </p>
                   </div>
