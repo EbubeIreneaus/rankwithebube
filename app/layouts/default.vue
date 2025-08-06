@@ -107,13 +107,14 @@ useHead({
       async: true
     },
     {
-      children: `
+      innerHTML: `
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-MQMBG3LX38');
       `,
-      type: "text/javascript"
+      type: "text/javascript",
+       id: 'gtag-init'
     }
   ]
 });
