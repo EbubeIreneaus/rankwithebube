@@ -14,7 +14,7 @@
             <h3 class="text-2xl font-bold">Enjoyed this post? Share it:</h3>
             <div class="flex items-center gap-4 text-base text-white">
               <u-button
-                :href="`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`"
+                :href="`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}?utm_source=facebook`"
                 target="_blank"
                 rel="nofollow noopener noreferrer"
                 aria-label="Share on Facebook"
@@ -25,7 +25,7 @@
               />
 
               <u-button
-                :href="`https://twitter.com/intent/tweet?url=${shareUrl}&text=${encodeURIComponent(
+                :href="`https://twitter.com/intent/tweet?url=${shareUrl}?utm_source=twitter&text=${encodeURIComponent(
                   blog.title
                 )}`"
                 target="_blank"
@@ -39,7 +39,7 @@
 
               <u-button
                 :href="`https://wa.me/?text=${encodeURIComponent(
-                  blog.title + ' ' + shareUrl
+                  blog.title + ' ' + shareUrl + '?utm_source=whatsapp'
                 )}`"
                 target="_blank"
                 rel="nofollow noopener noreferrer"
@@ -51,7 +51,7 @@
               />
 
               <u-button
-                :href="`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`"
+                :href="`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}?utm_source=linkedin`"
                 target="_blank"
                 rel="nofollow noopener noreferrer"
                 aria-label="Share on LinkedIn"
@@ -231,6 +231,27 @@ useSeoMeta({
   publisher: "Ebube Ireneaus",
   twitterCreator: "@EbubeIreneaus",
 });
+
+const timeout = ref<any>(null)
+
+async function incrementViews() {
+  try {
+    await $fetch("/api/main/blog/visit", {
+      method: "POST",
+      body: { source: data.value?.blog.slug },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+onMounted(() => {
+  timeout.value = setTimeout(() => incrementViews(), 10000)
+})
+
+onBeforeUnmount(() => {
+  clearTimeout(timeout.value)
+})
 </script>
 
 <style scoped></style>

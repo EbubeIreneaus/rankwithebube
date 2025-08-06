@@ -68,6 +68,27 @@ useSeoMeta({
   publisher: "Ebube Ireneaus",
   twitterCreator: "@EbubeIreneaus",
 });
+
+const timeout = ref<any>(null)
+
+async function incrementViews() {
+  try {
+    await $fetch("/api/main/project/visit", {
+      method: "POST",
+      body: { source: project.value?.slug },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+onMounted(() => {
+  timeout.value = setTimeout(() => incrementViews(), 10000)
+})
+
+onBeforeUnmount(() => {
+  clearTimeout(timeout.value)
+})
 </script>
 
 <style scoped></style>

@@ -99,6 +99,25 @@ onBeforeUnmount(() => {
   window.removeEventListener("scroll", handleScroll);
   window.removeEventListener("scroll", handleMobileScroll);
 });
+
+useHead({
+  script: [
+    {
+      src: "https://www.googletagmanager.com/gtag/js?id=G-MQMBG3LX38",
+      async: true
+    },
+    {
+      children: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-MQMBG3LX38');
+      `,
+      type: "text/javascript"
+    }
+  ]
+});
+
 </script>
 
 <template>
