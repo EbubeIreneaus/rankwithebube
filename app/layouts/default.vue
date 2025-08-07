@@ -104,7 +104,8 @@ useHead({
   script: [
     {
       src: "https://www.googletagmanager.com/gtag/js?id=G-MQMBG3LX38",
-      async: true
+      async: true,
+      tagPosition: 'head'
     },
     {
       innerHTML: `
@@ -114,7 +115,8 @@ useHead({
         gtag('config', 'G-MQMBG3LX38');
       `,
       type: "text/javascript",
-       id: 'gtag-init'
+       id: 'gtag-init',
+        tagPosition: 'head'
     }
   ]
 });

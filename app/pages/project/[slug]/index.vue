@@ -6,7 +6,7 @@
         class=" max-w-4xl mx-auto"
       >
         <div class="card-body">
-          <div>{{ dayjs(project.createdAt).format("MMMM DD, YYYY") }}</div>
+          <div class="text-slate-100">{{ dayjs(project.createdAt).format("MMMM DD, YYYY") }}</div>
           <div v-html="project.content" class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl !text-slate-100"></div>
         </div>
       </div>

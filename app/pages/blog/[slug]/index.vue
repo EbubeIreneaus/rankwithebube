@@ -3,7 +3,7 @@
     <div class="py-28 min-h-dvh container">
       <div v-if="blog" class="max-w-4xl mx-auto">
         <div class="card-body">
-          <div>{{ dayjs(blog.createdAt).format("MMMM DD, YYYY") }}</div>
+          <div class="text-slate-100">{{ dayjs(blog.createdAt).format("MMMM DD, YYYY") }}</div>
 
           <div
             v-html="blog.content"
@@ -11,7 +11,7 @@
           ></div>
 
           <div class="flex flex-col gap-2 mt-6">
-            <h3 class="text-2xl font-bold">Enjoyed this post? Share it:</h3>
+            <h3 class="text-2xl font-bold mb-3">Enjoyed this post? Share it:</h3>
             <div class="flex items-center gap-4 text-base text-white">
               <u-button
                 :href="`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}?utm_source=facebook`"
@@ -22,6 +22,7 @@
                 variant="soft"
                 color="neutral"
                 icon="fa6-brands:facebook-f"
+                size="xl"
               />
 
               <u-button
@@ -35,6 +36,7 @@
                 variant="soft"
                 color="neutral"
                 icon="fa6-brands:twitter"
+                size="xl"
               />
 
               <u-button
@@ -48,6 +50,7 @@
                 variant="soft"
                 color="neutral"
                 icon="fa6-brands:whatsapp"
+                size="xl"
               />
 
               <u-button
@@ -59,6 +62,7 @@
                 variant="soft"
                 color="neutral"
                 icon="fa6-brands:linkedin-in"
+                size="xl"
               />
             </div>
           </div>
