@@ -91,4 +91,12 @@ onBeforeUnmount(() => {
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+ul {
+  list-style-type: disc !important;
+  font-size: 1rem !important;
+}
+p{
+  font-size: 1rem !important;
+}
+</style>
