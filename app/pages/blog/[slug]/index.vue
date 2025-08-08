@@ -7,7 +7,7 @@
 
           <div
             v-html="blog.content"
-            class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl !text-slate-100"
+            class="prose  sm:prose lg:prose-lg xl:prose-2xl !text-slate-100"
           ></div>
 
           <div class="flex flex-col gap-2 mt-6">
@@ -261,9 +261,7 @@ onBeforeUnmount(() => {
 <style scoped>
 ul {
   list-style-type: disc !important;
-  font-size: 1rem !important;
+
 }
-p{
-  font-size: 1rem !important;
-}
+
 </style>

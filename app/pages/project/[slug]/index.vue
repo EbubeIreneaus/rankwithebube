@@ -7,7 +7,7 @@
       >
         <div class="card-body">
           <div class="text-slate-100">{{ dayjs(project.createdAt).format("MMMM DD, YYYY") }}</div>
-          <div v-html="project.content" class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl !text-slate-100"></div>
+          <div v-html="project.content" class="prose  sm:prose lg:prose-lg xl:prose-2xl !text-slate-100"></div>
         </div>
       </div>
     </div>
@@ -94,9 +94,6 @@ onBeforeUnmount(() => {
 <style scoped>
 ul {
   list-style-type: disc !important;
-  font-size: 1rem !important;
 }
-p{
-  font-size: 1rem !important;
-}
+
 </style>
