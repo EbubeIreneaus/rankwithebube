@@ -11,7 +11,7 @@
         <MainTitle title="Must Read" />
         <br />
 
-        <div class="grid sm:grid-cols-2 gap-x-1 gap-y-10">
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-1 gap-y-10">
           <MainSingleBlog
             :blog="bl"
             v-for="bl in data?.blogs || []"

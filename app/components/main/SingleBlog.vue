@@ -1,5 +1,5 @@
 <template>
-  <div class="card max-w-sm bg-slate-950" data-aos="fade-up">
+  <div class="card bg-slate-950" data-aos="fade-up">
     <div class="card-body">
       <img
         :src="blog.previewImage"
