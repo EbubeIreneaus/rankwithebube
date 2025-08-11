@@ -7,7 +7,7 @@
 
           <div
             v-html="blog.content"
-            class="prose  sm:prose lg:prose-lg xl:prose-2xl !text-slate-100"
+            class="prose-base sm:prose-base lg:prose-lg xl:prose-2xl !text-slate-100"
           ></div>
 
           <div class="flex flex-col gap-2 mt-6">
@@ -79,8 +79,8 @@
               <div class="flex items-start gap-5">
                 <img
                   :src="blog.previewImage"
-                  width="80"
-                  height="80"
+                  width="90"
+                  height="100"
                   class="object-cover object-center rounded-md"
                 />
 
@@ -88,16 +88,12 @@
                   <div>
                     <NuxtLink :to="`/blog/${blog.slug}`">
                       <h2
-                        class="text-xl font-semibold capitalize mb-2 line-clamp-1 text-ellipsis !font-arial underline underline-offset-4"
+                        class="text-xl font-semibold capitalize mb-2  text-ellipsis !font-arial underline underline-offset-4"
                       >
                         {{ blog.title }}
                       </h2>
                     </NuxtLink>
-                    <p
-                      class="text-base text-gray-500 line-clamp-2 text-ellipsis"
-                    >
-                      {{ blog.description }}
-                    </p>
+                    
                   </div>
                 </div>
               </div>
