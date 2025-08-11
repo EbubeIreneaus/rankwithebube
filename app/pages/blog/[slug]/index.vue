@@ -79,6 +79,7 @@
               <div class="flex items-start gap-5">
                 <img
                   :src="blog.previewImage"
+                  :alt="'preview image for '+blog.title"
                   width="90"
                   height="100"
                   class="object-cover object-center rounded-md"
