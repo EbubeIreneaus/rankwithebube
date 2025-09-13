@@ -39,24 +39,24 @@ useHead({
 
 useSeoMeta({
   title:
-    "Get a Website That Ranks, Converts, and Grows Your Business | Rank With Ebube",
+    "Web Design Service Nigeria | Affordable website design for your business - Abuja, Nigeria",
   description:
-    "Tired of websites that don’t bring results? I design and develop SEO-optimized websites that attract traffic, rank on Google, and turn visitors into loyal customers. Let’s build something that actually grows your business.",
+    "I design custom high-performance websites for businesses of all sizes across Nigeria that rank on search, engage customers, and drive real sales and growth, at affordable prices.",
   ogTitle:
-    "Get a Website That Ranks, Converts, and Grows Your Business | Rank With Ebube",
+    "Web Design Service Nigeria | Affordable Website design for your business - Abuja, Nigeria",
   ogDescription:
-    "Tired of websites that don’t bring results? I design and develop SEO-optimized websites that attract traffic, rank on Google, and turn visitors into loyal customers. Let’s build something that actually grows your business.",
+    "I design custom high-performance websites for businesses of all sizes across Nigeria that rank on search, engage customers, and drive real sales and growth, at affordable prices.",
   ogType: "website",
   ogUrl: "https://rankwithebube.com",
   ogImage: "https://rankwithebube.com/og-image.png",
   ogImageWidth: 768,
   ogImageHeight: 768,
   ogSiteName: "Rank With Ebube",
-  ogLocale: "en_US",
+  ogLocale: "en_NG",
 
   twitterCard: "summary",
   twitterTitle:
-    "Get a Website That Ranks, Converts, and Grows Your Business | Rank With Ebube",
+    "Web Design Service Nigeria | Best website developer for your business - Abuja, Nigeria",
   twitterDescription:
     "Tired of websites that don’t bring results? I design and develop SEO-optimized websites that attract traffic, rank on Google, and turn visitors into loyal customers. Let’s build something that actually grows your business.",
   twitterImage: "https://rankwithebube.com/og-image.png",
@@ -117,9 +117,9 @@ useSchemaOrg([
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": "https://rankwithebube.com/#webdev-service",
-    name: "Web Development & SEO Optimization",
+    name: "Web Design & SEO Optimization",
     description:
-      "I design and build SEO-optimized websites that help businesses rank higher, convert better, and grow faster online.",
+      "We design high-performance websites for businesses of all sizes to rank on search, engage customers, and drive real growth.",
     serviceType: "Web Design, SEO Optimization, Business Websites",
     provider: {
       "@type": "Person",

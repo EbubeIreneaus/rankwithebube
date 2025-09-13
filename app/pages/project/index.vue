@@ -32,7 +32,7 @@ useHead({
 });
 
 useSeoMeta({
-  title: "SEO Website Portfolio | Business-Focused Projects | Rank With Ebube",
+  title: "Website Portfolio | Business-Focused Projects | Rank With Ebube",
   description:
     "Explore a portfolio of SEO-optimized, responsive websites built for real businesses. See how I help brands grow online through custom design, smart strategy, and technical excellence.",
 

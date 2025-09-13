@@ -25,24 +25,24 @@ useHead({
 });
 
 useSeoMeta({
-  title: "Contact Ebube | Let's Build a Website That Ranks and Converts",
+  title: "Contact Me - Let's design a website that drives real growths.",
   description:
-    "Have a project or idea in mind? Get in touch with Ebube Ireneaus today. I help businesses build SEO-optimized websites that drive traffic, attract customers, and grow online. Let's talk!",
-  ogTitle: "Contact Ebube | Let's Build a Website That Ranks and Converts",
+    "Get in touch with me today. WhatsApp: +234 806 198 2520, Email: hello@rankwithebube.com, address: Kubwa, Abuja, facebook: rankwithebube, twitter: @EbubeIreneaus",
+  ogTitle: "Contact Me - Let's design a website that drives real growths.",
   ogDescription:
-    "Have a project or idea in mind? Get in touch with Ebube Ireneaus today. I help businesses build SEO-optimized websites that drive traffic, attract customers, and grow online. Let's talk!",
+    "Get in touch with me today. WhatsApp: +234 806 198 2520, Email: hello@rankwithebube.com, address: Kubwa, Abuja, facebook: rankwithebube, twitter: @EbubeIreneaus",
   ogType: "website",
   ogUrl: "https://rankwithebube.com/contact-me",
   ogImage: "https://rankwithebube.com/og-about-image.png",
   ogImageWidth: 768,
   ogImageHeight: 768,
   ogSiteName: "Rank With Ebube",
-  ogLocale: "en_US",
+  ogLocale: "en_NG",
 
   twitterCard: "summary",
-  twitterTitle: "Contact Ebube | Let's Build a Website That Ranks and Converts",
+  twitterTitle: "Contact Me - Let's design a website that drives real growths.",
   twitterDescription:
-    "Have a project or idea in mind? Get in touch with Ebube Ireneaus today. I help businesses build SEO-optimized websites that drive traffic, attract customers, and grow online. Let's talk!",
+    "Get in touch with Me today. WhatsApp: +234 806 198 2520, Email: hello@rankwithebube.com, address: Kubwa, Abuja, facebook: rankwithebube, twitter: @EbubeIreneaus",
   twitterImage: "https://rankwithebube.com/og-about-image.png",
   twitterCreator: "@EbubeIreneaus",
 });

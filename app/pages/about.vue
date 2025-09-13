@@ -150,24 +150,24 @@ useHead({
 });
 
 useSeoMeta({
-  title: "About Ebube | SEO-Focused Web Developer Who Builds for Results",
+  title: "Web Design by Ebube Ireneaus | Full-Stack Developer - Abuja, Nigeria",
   description:
-    "Learn about Ebube Ireneaus, a full-stack developer who helps businesses grow through SEO-optimized websites that rank, convert, and perform. Discover the strategy behind every site built at Rank With Ebube.",
-  ogTitle: "Meet Ebube — Building Websites That Actually Grow Businesses",
+    "I’m a passionate full-stack developer helping businesses in Abuja, Lagos, Enugu, and Africa succeed online with high-performance, SEO-optimized websites.",
+  ogTitle: "Web Design by Ebube Ireneaus | Full-Stack Developer - Abuja, Nigeria",
   ogDescription:
-    "From code to conversions, Ebube combines business understanding, SEO, and design to help brands win online. Learn what makes him different.",
+    "I’m a passionate full-stack developer helping businesses in Abuja, Lagos, Enugu, and Africa succeed online with high-performance, SEO-optimized websites.",
   ogType: "profile",
   ogUrl: "https://rankwithebube.com/about",
-  ogImage: "https://rankwithebube.com/og-about-image.png",  // Replace with your specific about image if needed
+  ogImage: "https://rankwithebube.com/og-about-image.png",  
   ogImageWidth: 768,
   ogImageHeight: 768,
   ogSiteName: "Rank With Ebube",
   ogLocale: "en_US",
 
   twitterCard: "summary",
-  twitterTitle: "About Ebube — The Developer Behind Rank With Ebube",
+  twitterTitle: "Web Design by Ebube Ireneaus | Full-Stack Developer - Abuja, Nigeria",
   twitterDescription:
-    "Business-first. SEO-ready. Strategy-backed. Get to know Ebube Ireneaus and what drives the success behind his web projects.",
+    "I’m a passionate full-stack developer helping businesses in Abuja, Lagos, Enugu, and Africa succeed online with high-performance, SEO-optimized websites.",
   twitterImage: "https://rankwithebube.com/og-about-image.png",
   twitterCreator: "@EbubeIreneaus",
 });
@@ -176,7 +176,7 @@ useSchemaOrg([
   defineWebPage({
     '@type': 'AboutPage',
     '@id': 'https://rankwithebube.com/about#webpage',
-    name: 'About Ebube Ireneaus | Rank With Ebube',
+    name: 'Web Design by Ebube Ireneaus | Full-Stack Developer - Abuja, Nigeria',
     url: 'https://rankwithebube.com/about',
     description:
       'Get to know Ebube Ireneaus — a Full-Stack Developer helping businesses build SEO-optimized websites that rank, convert, and grow. Discover the passion, values, and skills behind Rank With Ebube.',
