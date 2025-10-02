@@ -146,6 +146,9 @@ useHead({
                   <nuxt-link to="/#service">Service</nuxt-link>
                 </li>
                 <li class="has-dropdown">
+                  <nuxt-link to="/#pricing">Pricing</nuxt-link>
+                </li>
+                <li class="has-dropdown">
                   <nuxt-link to="/project">Projects</nuxt-link>
                 </li>
                 <li class="has-dropdown">
@@ -210,10 +213,11 @@ useHead({
                 <nuxt-link to="/#service"
                   ><span>Services</span></nuxt-link
                 >
-                <!-- <ul class="mobile-sub-menu">
-                  <li><a href="service-list.html">Service List</a></li>
-                  <li><a href="service-details.html">Service Details</a></li>
-                </ul> -->
+              </li>
+              <li>
+                <nuxt-link to="/#pricing"
+                  ><span>Pricing</span></nuxt-link
+                >
               </li>
               <li>
                 <nuxt-link to="/project"><span>Projects</span></nuxt-link>

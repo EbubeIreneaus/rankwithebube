@@ -1,8 +1,10 @@
 <template>
   <main>
     <MainHero />
+    <MainWhyMe />
     <MainAboutMyself />
     <MainMyServiceComp />
+    <MainPricing />
 
     <MainProjects :projects="data?.projects || []" />
 
