@@ -46,6 +46,7 @@
     "drizzle-zod": "^0.8.3",
     "jsdom": "^27.0.0",
     "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^6.10.1",
     "nuxt": "^4.1.2",
     "nuxt-aos": "^1.2.5",
     "nuxt-icons": "^4.0.0",
@@ -68,7 +69,6 @@
     "@types/jsonwebtoken": "^9.0.10",
     "@types/pg": "^8.15.5",
     "@types/streamifier": "^0.1.2",
-    "nodemailer": "^7.0.6",
     "nuxt-nodemailer": "^1.1.2"
   }
 }
