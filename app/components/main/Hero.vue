@@ -1,27 +1,29 @@
 <template>
   <section class="hero mb-24" aria-label="Hero section">
     <div class="hero-content flex-col lg:flex-row lg:items-end mt-16 lg:mt-20">
-      <div class="flex lg:px-10 md:px-5 px-3 flex-col space-y-5 max-w-3xl order-2 lg:order-1">
+      <div
+        class="flex lg:px-10 md:px-5 px-3 flex-col space-y-5 max-w-3xl order-2 lg:order-1"
+      >
         <h1
-          class="!font-playfair text-5xl font-bold text-left mb-3 "
+          class="!font-playfair text-5xl font-bold text-left mb-3"
           data-aos="fade-up"
         >
           I Design custom, SEO-driven and High Perfoming websites for businesses
-          across Nigeria
+          & organizations across Nigeria
         </h1>
         <p
-          class="text-justify !font-arial w-full text-lg mb-3"
+          class="text-justify !font-arial w-full text-lg mb-5"
           data-aos="fade-right"
         >
-          Let's build a powerful website for your business that doesn’t just
-          look stunning, it’s designed to attract customers and drive real
-          results.
+          I create affordable websites that rank on search engines, engage your
+          customers, and drive real sales and growth for your business. Let’s
+          build a website that doesn’t just look stunning — it delivers results.
         </p>
 
-        <div class="mt-5 flex justify-center lg:justify-start mb-5">
+        <div class=" flex justify-center lg:justify-start mb-4">
           <ui-action-button label="Contact Me" />
         </div>
-       <main-counterup />
+        <main-counterup />
       </div>
       <img
         srcset="
@@ -40,9 +42,6 @@
   </section>
 </template>
 
-<script setup lang="ts">
-
-
-</script>
+<script setup lang="ts"></script>
 
 <style scoped></style>

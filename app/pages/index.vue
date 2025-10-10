@@ -41,13 +41,13 @@ useHead({
 
 useSeoMeta({
   title:
-    "Web Design Service Nigeria | Affordable website design for your business - Abuja, Nigeria",
+    "High-Performance, SEO-Driven Web Design for Nigerian Businesses & Organizations | RankWithEbube",
   description:
-    "I design custom high-performance websites for businesses of all sizes across Nigeria that rank on search, engage customers, and drive real sales and growth, at affordable prices.",
+    "I build SEO-driven, high-performance websites for businesses across Nigeria that rank on Google, attract customers, and drive real sales — all at affordable prices. Work with RankWithEbube to grow your brand online.",
   ogTitle:
-    "Web Design Service Nigeria | Affordable Website design for your business - Abuja, Nigeria",
+    "High-Performance, SEO-Driven Web Design for Nigerian Businesses & Organizations | RankWithEbube",
   ogDescription:
-    "I design custom high-performance websites for businesses of all sizes across Nigeria that rank on search, engage customers, and drive real sales and growth, at affordable prices.",
+    "I build SEO-driven, high-performance websites for businesses across Nigeria that rank on Google, attract customers, and drive real sales — all at affordable prices. Work with RankWithEbube to grow your brand online.",
   ogType: "website",
   ogUrl: "https://rankwithebube.com",
   ogImage: "https://rankwithebube.com/og-image.png",
@@ -58,9 +58,9 @@ useSeoMeta({
 
   twitterCard: "summary",
   twitterTitle:
-    "Web Design Service Nigeria | Best website developer for your business - Abuja, Nigeria",
+    "High-Performance, SEO-Driven Web Design for Nigerian Businesses & Organizations | RankWithEbube",
   twitterDescription:
-    "Tired of websites that don’t bring results? I design and develop SEO-optimized websites that attract traffic, rank on Google, and turn visitors into loyal customers. Let’s build something that actually grows your business.",
+    "I build SEO-driven, high-performance websites for businesses across Nigeria that rank on Google, attract customers, and drive real sales — all at affordable prices. Work with RankWithEbube to grow your brand online.",
   twitterImage: "https://rankwithebube.com/og-image.png",
   twitterCreator: "@EbubeIreneaus",
 });
@@ -74,9 +74,9 @@ useSchemaOrg([
 
   defineWebPage({
     "@id": "https://rankwithebube.com/#webpage",
-    name: "Get a Website That Ranks, Converts, and Grows Your Business",
+    name: "High-Performance, SEO-Driven Web Design for Nigerian Businesses & Organizations | RankWithEbube",
     description:
-      "Ebube Ireneaus builds SEO-optimized websites that attract traffic, rank high on Google, and convert visitors into customers. Let’s grow your business online.",
+      "I build SEO-driven, high-performance websites for businesses across Nigeria that rank on Google, attract customers, and drive real sales — all at affordable prices. Work with RankWithEbube to grow your brand online.",
     url: "https://rankwithebube.com",
     isPartOf: { "@id": "https://rankwithebube.com/#website" },
   }),
@@ -121,7 +121,7 @@ useSchemaOrg([
     "@id": "https://rankwithebube.com/#webdev-service",
     name: "Web Design & SEO Optimization",
     description:
-      "We design high-performance websites for businesses of all sizes to rank on search, engage customers, and drive real growth.",
+      "I build SEO-driven, high-performance websites for businesses across Nigeria that rank on Google, attract customers, and drive real sales — all at affordable prices. Work with RankWithEbube to grow your brand online.",
     serviceType: "Web Design, SEO Optimization, Business Websites",
     provider: {
       "@type": "Person",
