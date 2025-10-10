@@ -5,7 +5,7 @@
         class="flex lg:px-10 md:px-5 px-3 flex-col space-y-5 max-w-3xl order-2 lg:order-1"
       >
         <h1
-          class="!font-playfair text-5xl font-bold text-left mb-3"
+          class="!font-playfair text-4xl md:text-5xl font-bold mb-3"
           data-aos="fade-up"
         >
           I Design custom, SEO-driven and High Perfoming websites for businesses
